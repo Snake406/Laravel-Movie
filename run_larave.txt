@@ -1,0 +1,56 @@
+composer create-project laravel/laravel proj_name
+
+
+php artisan serve
+
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+		Pdo\Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+
+php artisan serve
+php artisan migrate:install
+php artisan migrate
+php artisan make:migration create_companies_table
+php artisan make:migration create_contacts_table
+php artisan migrate:frsesh
+(optional to undo a migration - php artisan migrate:rollback)
+php artisan make:model Company
+php artisan make:model Contact
+
+
+
+
+movieapp
+php artisan tinker 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @foreach ( $contacts as $index => $contact )
+                    
+                      <tr>
+                      <th scope="row">{{ $index + 1 }}</th>
+                        <td>{{$contact->first_name}}</td>
+                        <td>{{$contact->last_name}}</td>
+                        <td>{{$contact->email}}</td>
+                        <td>{{$contact->company->name}}</td>
+                        <td width="150">
+                          <a href={{route('contacts.show', $contact->id)  }} class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                          <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                          <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+
